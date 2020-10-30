@@ -67,6 +67,8 @@ def student():
     for i in range(10):
         print(loading[i], sep=' ', end=' ', flush=True);
         sleep(0.5)
+
+
     print("\n")
     print("Name: "+studentName)
     print("Educational Level: "+studentLevel)
