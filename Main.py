@@ -12,5 +12,4 @@ while menu!="3":
     if studentLevel==1:
         Student.student()
     elif studentLevel==2:
-
         Student.student()
