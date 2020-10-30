@@ -8,8 +8,7 @@ while menu!="3":
         print("Input error\n")
     if menu=="1":
         print("\nEncode grade\n")
-    studentLevel = int(input("Enter educational level (1=elementary,2=highschool,3=college): "))
-    if studentLevel==1:
-        Student.student()
-    elif studentLevel==2:
-        Student.student()
+        studentLevel = int(input("Enter educational level (1=elementary,2=highschool,3=college): "))
+        if studentLevel==1:
+            Student.student()
+            menu=input("")
