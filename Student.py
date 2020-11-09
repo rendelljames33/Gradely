@@ -54,6 +54,8 @@ def student():
         eighthsubgrades = int(input())
         eighthSub.append(eighthsubgrades)
 
+
+
     #formula for all grades
     firstFinal=sum(firstSub)/len(firstSub)
     secondFinal=sum(secondSub)/len(secondSub)
@@ -103,3 +105,26 @@ def student():
         eighthSub[2]) + "       " +
           str(eighthSub[3]) + "       " + str(eightFinal))
     print("                                    General Average: "+"%.2f" % generalAve)
+    print()
+
+    #changing lists into string for write
+    firstSub=str(firstSub)
+    secondSub=str(secondSub)
+    thirdSub=str(thirdSub)
+    fourthSub=str(fourthSub)
+    fifthSub=str(fifthSub)
+    sixthSub=str(sixthSub)
+    seventhSub=str(seventhSub)
+    eighthSub=str(eighthSub)
+
+    with open('Elementary.txt','a') as elem:
+        elem.write(studentName+'\n')
+        elem.write(firstSub)
+        elem.write(secondSub)
+        elem.write(thirdSub)
+        elem.write(fourthSub)
+        elem.write(fifthSub)
+        elem.write(sixthSub)
+        elem.write(seventhSub)
+        elem.write(eighthSub+'\n')
+
