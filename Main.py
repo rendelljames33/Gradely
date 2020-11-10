@@ -1,4 +1,4 @@
-import Student
+import Student, Grades
 menu = 0
 while menu != 3:
     print("Welcome to Gradely: A Grade Encoding and Storage System")
@@ -15,6 +15,7 @@ while menu != 3:
             Student.college()
     elif mainMenu==2:
         print("\nView grades\n")
+        Grades.viewGrade()
     elif mainMenu==3:
         print("\nThank You for using Gradely!")
         menu=3
