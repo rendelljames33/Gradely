@@ -1,4 +1,5 @@
-import Student, Grades
+import Student
+import Grades
 menu = 0
 while menu != 3:
     print("Welcome to Gradely: A Grade Encoding and Storage System")
