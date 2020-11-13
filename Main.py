@@ -1,7 +1,8 @@
 import Student
 import Grades
+import Misc
 menu = 0
-while menu != 3:
+while True:
     print("Welcome to Gradely: A Grade Encoding and Storage System")
     print("1.Encode grade\n2.View grades\n3.Exit")
     mainMenu=int(input())
@@ -13,6 +14,6 @@ while menu != 3:
         Grades.viewGrade()
     elif mainMenu==3:
         print("\nThank You for using Gradely!")
-        menu=3
+        break
     else:
-        print("Incorrect input\n")
+        Misc.error()

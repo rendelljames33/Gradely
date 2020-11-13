@@ -1,4 +1,5 @@
-from time import sleep
+#Functions for encoding grade
+import Misc
 
 #function for remarks
 def determine_grade(genAve):
@@ -36,22 +37,19 @@ def determine_rate(genAve):
     elif genAve >= 0.0 and genAve <= 49.9:
         return '5.00'
 
-#function for loading part
-def load():
-    loading = '..........'
-    print()
-    print("GENERATING REPORT CARD PLEASE WAIT", end=" ")
-    for i in range(10):
-        print(loading[i], sep=' ', end=' ', flush=True);
-        sleep(0.5)
-    print()
-
 #function for encoding grade(elem and hs)
 def encodeQuartergrades():
-    quarterGrades=[]
-    for i in range(0, 4):
-        quarterGrades.append(int(input()))
-    return quarterGrades
+    while True:
+        quarterGrades=[]
+        i=0
+        while i!=4:
+            grade=input()
+            if grade.isdigit():
+                quarterGrades.append(int(grade))
+                i+=1
+            else:
+                Misc.error()
+        return quarterGrades
 
 #function for encoding grade(college)
 def encodegradecollege():
@@ -63,11 +61,16 @@ def encodegradecollege():
 
 #function for encoding subjects
 def encodesubject():
-    listsubject = []
-    subjCount =input("Enter the total number of subjects: ").strip()
-    for i in range(int(subjCount)):
-        listsubject.append(input("Enter subject {}: ".format(i + 1)))
-    return listsubject
+    while True:
+        listsubject = []
+        subjCount =input("Enter the total number of subjects: ").strip()
+        if subjCount in '1234567890':
+            subjCount=int(subjCount)
+            for i in range(int(subjCount)):
+                listsubject.append(input("Enter subject {}: ".format(i + 1)))
+            break
+        else:
+            Misc.error()
 
 def reportCard(studName,studLevel,subjgrades,subjectslist,quarterAverage,generalAverage):
     print()
@@ -94,19 +97,38 @@ def reportCardcollege(studName,studLevel,subjgrades,subjectslist,quarterAverage,
     print(f"{' ':<30}{'Rate: '}" +str(determine_rate(generalAverage)))
 
 def encodeGrade():
-    studentLevel = int(input("Enter educational level (1=elementary,2=highschool,3=college): "))
-    if studentLevel == 1:
-        elementary()
-    elif studentLevel == 2:
-        highschool()
-    elif studentLevel == 3:
-        college()
+    while True:
+        studentLevel = input("Enter educational level\n1.Elementary\n2.Highschool\n3.College\n4.Back\n")
+        if studentLevel in '1234':
+            studentLevel=int(studentLevel)
+            if studentLevel == 1:
+                elementary()
+                break
+            elif studentLevel == 2:
+                highschool()
+                break
+            elif studentLevel == 3:
+                college()
+                break
+            elif studentLevel == 4:
+                return False
+        else:
+            Misc.error()
 
 #student for elementary
 def elementary():
     studentName=str(input("Enter student name: "))
     studentLevel="Elementary"
-    subjectslist = encodesubject()
+    while True:
+        subjectslist = []
+        subjCount =input("Enter the total number of subjects: ").strip()
+        if subjCount in '1234567890':
+            subjCount=int(subjCount)
+            for i in range(int(subjCount)):
+                subjectslist.append(input("Enter subject {}: ".format(i + 1)))
+            break
+        else:
+            Misc.error()
     subjCount = len(subjectslist)
     subjgrades=[]
     quarterTotal=[]
@@ -127,7 +149,7 @@ def elementary():
     generalTotal = sum(quarterAverage)
     generalAverage = generalTotal / subjCount
 
-    load()
+    Misc.load()
     reportCard(studentName,studentLevel,subjgrades,subjectslist,quarterAverage,generalAverage)
 
     newsubgrades=[]
@@ -169,7 +191,7 @@ def highschool():
     generalTotal = sum(quarterAverage)
     generalAverage = generalTotal / subjCount
 
-    load()
+    Misc.load()
     reportCard(studentName,studentLevel,subjgrades,subjectslist,quarterAverage,generalAverage)
 
     newsubgrades = []
@@ -213,7 +235,7 @@ def college():
     generalTotal = sum(quarterAverage)
     generalAverage = generalTotal / subjCount
 
-    load()
+    Misc.load()
     reportCardcollege(studentName,studentLevel,subjgrades,subjectslist,quarterAverage,generalAverage)
 
     newsubgrades = []

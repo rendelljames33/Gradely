@@ -1,5 +1,7 @@
 #function for viewing grades
+import Misc
 import Student
+
 def elementaryHasgrades():
     try:
         with open('Elementary.txt', 'r') as elem:
@@ -66,7 +68,7 @@ def elemSearchGrade():
                 studentNames.append(names)
         print()
         print("Select a student:")
-        student=int(input())
+        student = int(input())
         chosenStudent = studentNames[student]
         print(chosenStudent)
         print("Select an action:\n1.View grades\n2.Delete grades")
@@ -81,10 +83,10 @@ def elemSearchGrade():
             newsubj.append(str(x))
         for x in subjgrades:
             newsubjgrades.append(int(x))
-        quartergrades = list(divide_chunks(newsubjgrades, 4))
-        quartersum = [sum(i) for i in quartergrades]
-        quarterAverage = []
-        studentLevel = 'Elementary'
+            quartergrades = list(divide_chunks(newsubjgrades, 4))
+            quartersum = [sum(i) for i in quartergrades]
+            quarterAverage = []
+            studentLevel = 'Elementary'
         for sums in quartersum:
             average = sums / 4
             quarterAverage.append(average)
@@ -92,17 +94,17 @@ def elemSearchGrade():
         generalTotal = sum(quarterAverage)
         generalAverage = generalTotal / subjCount
         if action==1:
-            Student.load()
-            Student.reportCard(chosenStudent,studentLevel,quartergrades,subject,quarterAverage,generalAverage)
-            print()
+                Misc.load()
+                Student.reportCard(chosenStudent,studentLevel,quartergrades,subject,quarterAverage,generalAverage)
+                print()
         elif action==2:
-            delete=str(input("Delete this entry? (y/n): ")).lower()
-            if delete=='y':
-                data=elemFile()
-                for i in range(0,3):
-                    data.pop(student)
-                with open('Elementary.txt','w') as elementary:
-                    elementary.writelines(data)
+                delete=str(input("Delete this entry? (y/n): ")).lower()
+                if delete=='y':
+                    data=elemFile()
+                    for i in range(0,3):
+                        data.pop(student)
+                    with open('Elementary.txt','w') as elementary:
+                        elementary.writelines(data)
 
 def hsSeachGrade():
     with open('Highschool.txt', 'r') as searchHs:
@@ -144,7 +146,7 @@ def hsSeachGrade():
         generalTotal = sum(quarterAverage)
         generalAverage = generalTotal / subjCount
         if action==1:
-            Student.load()
+            Misc.load()
             Student.reportCard(chosenStudent,studentLevel,quartergrades,subject,quarterAverage,generalAverage)
             print()
         elif action==2:
@@ -196,7 +198,7 @@ def colSearchGrades():
         generalTotal = sum(quarterAverage)
         generalAverage = generalTotal / subjCount
         if action==1:
-            Student.load()
+            Misc.load()
             Student.reportCardcollege(chosenStudent,studentLevel,quartergrades,subject,quarterAverage,generalAverage)
             print()
         elif action==2:
@@ -208,31 +210,34 @@ def colSearchGrades():
                 with open('College.txt','w') as college:
                     college.writelines(data)
 
-
-
-
-
-
 def viewGrade():
     while True:
-        print("Select category\n1.Elementary\n2.Highschool\n3.College")
-        select=int(input())
-        if select==1:
-            if elementaryHasgrades():
-                print("There are entries found in Elementary category.")
-                elemSearchGrade()
+        print("Select category\n1.Elementary\n2.Highschool\n3.College\n4.Back")
+        select=input()
+        if select in '1234':
+            select=int(select)
+            if select==1:
+                if elementaryHasgrades():
+                    Misc.found()
+                    elemSearchGrade()
+                else:
+                    Misc.error(type='entry')
+            elif select==2:
+                if highschoolHasgrades():
+                    Misc.found()
+                    hsSeachGrade()
+                else:
+                    Misc.error(type='entry')
+            elif select==3:
+                if collegeHasgrades():
+                    Misc.found()
+                    colSearchGrades()
+                else:
+                    Misc.error(type='entry')
+            elif select==4:
+                break
             else:
-                print("There are no entries found in Elementary category.")
-        elif select==2:
-            if highschoolHasgrades():
-                print("There are entries found in Highschool category.")
-                hsSeachGrade()
-            else:
-                print("There are no entries found in Highschool category.")
-        elif select==3:
-            if collegeHasgrades():
-                print("There are entries found in College category.")
-                colSearchGrades()
-            else:
-                print("There are no entries found in College category.")
+                Misc.error()
+        else:
+            Misc.error()
 
