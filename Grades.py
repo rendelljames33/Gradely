@@ -57,7 +57,7 @@ def elemSearchGrade():
                 studentNames.append(names)
         print()
         while True:
-            print("Select a student:")
+            print("Select a student (x to go back):")
             student = input()
             if student.isdigit():
                 student = int(student)
@@ -115,6 +115,8 @@ def elemSearchGrade():
                     else:
                         Misc.error()
                 break
+            elif student=='x':
+                break
             else:
                 Misc.error()
 
@@ -132,7 +134,7 @@ def hsSeachGrade():
                 studentNames.append(names)
         print()
         while True:
-            print("Select a student:")
+            print("Select a student(x to go back):")
             student = input()
             if student.isdigit():
                 student = int(student)
@@ -189,6 +191,8 @@ def hsSeachGrade():
                     else:
                         Misc.error()
                 break
+            elif student=='x':
+                break
             else:
                 Misc.error()
 
@@ -206,7 +210,7 @@ def colSearchGrades():
                 studentNames.append(names)
         print()
         while True:
-            print("Select a student:")
+            print("Select a student(x to go back):")
             student = input()
             if student.isdigit():
                 student = int(student)
@@ -262,6 +266,8 @@ def colSearchGrades():
                         break
                     else:
                         Misc.error()
+                break
+            elif student=='x':
                 break
             else:
                 Misc.error()
