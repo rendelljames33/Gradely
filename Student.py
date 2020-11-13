@@ -1,4 +1,4 @@
-#Functions for encoding grade
+#This is where you can find all the major functions for encoding grades
 import Misc
 
 #function for remarks

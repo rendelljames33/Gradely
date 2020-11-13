@@ -1,8 +1,7 @@
+#This is where all the minor functions are found
 from time import sleep
 import Student
 import Grades
-
-#This is where minor functions are found
 
 #function for loading part
 def load():

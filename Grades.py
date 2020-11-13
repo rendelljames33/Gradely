@@ -1,4 +1,4 @@
-#function for viewing grades
+# This is where you can find all major functions under view grades section
 import Misc
 import Student
 
