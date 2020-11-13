@@ -7,13 +7,7 @@ while menu != 3:
     mainMenu=int(input())
     if mainMenu==1:
         print("\nEncode grade\n")
-        studentLevel = int(input("Enter educational level (1=elementary,2=highschool,3=college): "))
-        if studentLevel==1:
-            Student.elementary()
-        elif studentLevel==2:
-            Student.highschool()
-        elif studentLevel==3:
-            Student.college()
+        Student.encodeGrade()
     elif mainMenu==2:
         print("\nView grades\n")
         Grades.viewGrade()

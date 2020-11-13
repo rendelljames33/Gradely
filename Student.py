@@ -93,6 +93,15 @@ def reportCardcollege(studName,studLevel,subjgrades,subjectslist,quarterAverage,
     print(f"{' ':<19}{'General Average: '}"+"%.2f" % generalAverage)
     print(f"{' ':<30}{'Rate: '}" +str(determine_rate(generalAverage)))
 
+def encodeGrade():
+    studentLevel = int(input("Enter educational level (1=elementary,2=highschool,3=college): "))
+    if studentLevel == 1:
+        elementary()
+    elif studentLevel == 2:
+        highschool()
+    elif studentLevel == 3:
+        college()
+
 #student for elementary
 def elementary():
     studentName=str(input("Enter student name: "))
@@ -121,12 +130,19 @@ def elementary():
     load()
     reportCard(studentName,studentLevel,subjgrades,subjectslist,quarterAverage,generalAverage)
 
-    subjectslist=str(subjectslist)
-    subjgrades=str(subjgrades)
+    newsubgrades=[]
+    for i in subjgrades:
+        for x in i:
+            newsubgrades.append(x)
     with open('Elementary.txt','a') as elem:
         elem.write(studentName+'\n')
-        elem.write(subjectslist+'\n')
-        elem.write(subjgrades+'\n')
+        for i in subjectslist:
+            elem.write(i+' ')
+        elem.write('\n')
+        for i in newsubgrades:
+            elem.write(str(i)+' ')
+        elem.write('\n')
+    print()
 
 #student for highschool
 def highschool():
@@ -156,13 +172,20 @@ def highschool():
     load()
     reportCard(studentName,studentLevel,subjgrades,subjectslist,quarterAverage,generalAverage)
 
-    subjectslist=str(subjectslist)
-    subjgrades=str(subjgrades)
+    newsubgrades = []
+    for i in subjgrades:
+        for x in i:
+            newsubgrades.append(x)
 
     with open('Highschool.txt', 'a') as hs:
         hs.write(studentName+'\n')
-        hs.write(subjectslist+'\n')
-        hs.write(subjgrades+'\n')
+        for i in subjectslist:
+            hs.write(i+' ')
+        hs.write('\n')
+        for i in newsubgrades:
+            hs.write(str(i) + ' ')
+        hs.write('\n')
+    print()
 
 
 #student for college
@@ -193,10 +216,17 @@ def college():
     load()
     reportCardcollege(studentName,studentLevel,subjgrades,subjectslist,quarterAverage,generalAverage)
 
-    subjectslist=str(subjectslist)
-    subjgrades=str(subjgrades)
+    newsubgrades = []
+    for i in subjgrades:
+        for x in i:
+            newsubgrades.append(x)
 
     with open('College.txt', 'a') as col:
-        col.write(studentName + '\n')
-        col.write(subjectslist+'\n')
-        col.write(subjgrades+'\n')
+        col.write(studentName+'\n')
+        for i in subjectslist:
+            col.write(i+' ')
+        col.write('\n')
+        for i in newsubgrades:
+            col.write(str(i) + ' ')
+        col.write('\n')
+    print()
