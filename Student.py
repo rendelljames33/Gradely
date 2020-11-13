@@ -53,11 +53,17 @@ def encodeQuartergrades():
 
 #function for encoding grade(college)
 def encodegradecollege():
-    listgrade=[]
-    for i in range(0,2):
-        grad=int(input())
-        listgrade.append(grad)
-    return listgrade
+    while True:
+        quarterGrades=[]
+        i=0
+        while i!=2:
+            grade=input()
+            if grade.isdigit():
+                quarterGrades.append(int(grade))
+                i+=1
+            else:
+                Misc.error()
+        return quarterGrades
 
 #function for encoding subjects
 def encodesubject():
@@ -170,8 +176,16 @@ def elementary():
 def highschool():
     studentName=str(input("Enter student name: "))
     studentLevel="Highschool"
-    subjectslist = encodesubject()
-    subjCount = len(subjectslist)
+    while True:
+        subjectslist = []
+        subjCount =input("Enter the total number of subjects: ").strip()
+        if subjCount in '1234567890':
+            subjCount=int(subjCount)
+            for i in range(int(subjCount)):
+                subjectslist.append(input("Enter subject {}: ".format(i + 1)))
+            break
+        else:
+            Misc.error()
     subjgrades=[]
     quarterTotal=[]
     quarterAverage=[]
@@ -214,8 +228,16 @@ def highschool():
 def college():
     studentName=str(input("Enter student name: "))
     studentLevel="College"
-    subjectslist = encodesubject()
-    subjCount = len(subjectslist)
+    while True:
+        subjectslist = []
+        subjCount =input("Enter the total number of subjects: ").strip()
+        if subjCount in '1234567890':
+            subjCount=int(subjCount)
+            for i in range(int(subjCount)):
+                subjectslist.append(input("Enter subject {}: ".format(i + 1)))
+            break
+        else:
+            Misc.error()
     subjgrades=[]
     quarterTotal=[]
     quarterAverage=[]
