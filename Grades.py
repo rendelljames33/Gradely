@@ -2,6 +2,7 @@
 import Misc
 import Student
 
+#To check if elementary has entries to it
 def elementaryHasgrades():
     try:
         with open('Elementary.txt', 'r') as elem:
@@ -9,7 +10,7 @@ def elementaryHasgrades():
                 return True
     except:
         return False
-
+#To check if highschool has entries to it
 def highschoolHasgrades():
     try:
         with open('Highschool.txt', 'r') as hs:
@@ -17,6 +18,7 @@ def highschoolHasgrades():
                 return True
     except:
         return False
+#To check if college has entries to it
 def collegeHasgrades():
     try:
         with open('College.txt', 'r') as col:
@@ -25,24 +27,28 @@ def collegeHasgrades():
     except:
         return False
 
-
+#This function will divide the list of grades according to N subjects
 def divide_chunks(l, n):
     # looping till length l
     for i in range(0, len(l), n):
         yield l[i:i + n]
 
+#function to write in elementary file if there is something to delete
 def elemFile():
     with open('Elementary.txt','r') as elemData:
         return elemData.readlines()
 
+#function to write in highschool file if there is something to delete
 def hsFile():
     with open('Highschool.txt','r') as hsData:
         return hsData.readlines()
 
+#function to write in college file if there is something to delete
 def colFile():
     with open('College.txt','r') as colData:
         return colData.readlines()
 
+#Function to search in elementary file
 def elemSearchGrade():
     with open('Elementary.txt', 'r') as searchElem:
         elem=[]
@@ -92,7 +98,6 @@ def elemSearchGrade():
                             Misc.load()
                             Student.reportCard(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
                                                generalAverage)
-
                             print()
                         elif action == 2:
                             while True:
@@ -120,6 +125,7 @@ def elemSearchGrade():
             else:
                 Misc.error()
 
+#Function to search in highschool file
 def hsSeachGrade():
     with open('Highschool.txt', 'r') as searchHs:
         hs=[]
@@ -196,6 +202,7 @@ def hsSeachGrade():
             else:
                 Misc.error()
 
+#Function to search in college file
 def colSearchGrades():
     with open('College.txt', 'r') as searchCol:
         col=[]
@@ -272,6 +279,7 @@ def colSearchGrades():
             else:
                 Misc.error()
 
+#Function for viewing grades section
 def viewGrade():
     while True:
         print("Select category\n1.Elementary\n2.Highschool\n3.College\n4.Back")

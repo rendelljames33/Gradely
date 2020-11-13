@@ -78,6 +78,7 @@ def encodesubject():
         else:
             Misc.error()
 
+#Function to print the report card for elementary and highschool
 def reportCard(studName,studLevel,subjgrades,subjectslist,quarterAverage,generalAverage):
     print()
     print("Name: "+studName)
@@ -90,6 +91,7 @@ def reportCard(studName,studLevel,subjgrades,subjectslist,quarterAverage,general
     print(f"{' ':<33}{'General Average: '}"+"%.2f" % generalAverage)
     print(f"{' ':<41}{'Remarks: '}" +str(determine_grade(generalAverage)))
 
+#Function to print the report card for college
 def reportCardcollege(studName,studLevel,subjgrades,subjectslist,quarterAverage,generalAverage):
     print()
     print("Name: "+studName)
@@ -102,6 +104,7 @@ def reportCardcollege(studName,studLevel,subjgrades,subjectslist,quarterAverage,
     print(f"{' ':<19}{'General Average: '}"+"%.2f" % generalAverage)
     print(f"{' ':<30}{'Rate: '}" +str(determine_rate(generalAverage)))
 
+#Function for encoding grades section
 def encodeGrade():
     while True:
         studentLevel = input("Enter educational level\n1.Elementary\n2.Highschool\n3.College\n4.Back\n")
@@ -121,7 +124,7 @@ def encodeGrade():
         else:
             Misc.error()
 
-#student for elementary
+#to encode in
 def elementary():
     studentName=str(input("Enter student name: "))
     studentLevel="Elementary"
@@ -223,7 +226,6 @@ def highschool():
             hs.write(str(i) + ' ')
         hs.write('\n')
     print()
-
 
 #student for college
 def college():
