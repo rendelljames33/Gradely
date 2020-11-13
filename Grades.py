@@ -237,7 +237,7 @@ def colSearchGrades():
                         action=int(action)
                         if action == 1:
                             Misc.load()
-                            Student.reportCard(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
+                            Student.reportCardcollege(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
                                                generalAverage)
                             print()
                         elif action == 2:

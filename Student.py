@@ -11,7 +11,7 @@ def determine_grade(genAve):
         return 'Satisfactory'
     elif genAve >= 75.00 and genAve <= 79.99:
         return 'Fairly Satisfactory'
-    elif genAve < 75.00:
+    elif genAve < 74.99:
         return 'Failed'
 
 #function for rating(college)
@@ -269,7 +269,7 @@ def college():
     with open('College.txt', 'a') as col:
         col.write(studentName+'\n')
         for i in subjectslist:
-            col.write(i+' ')
+            col.write(i.strip()+' ')
         col.write('\n')
         for i in newsubgrades:
             col.write(str(i) + ' ')
