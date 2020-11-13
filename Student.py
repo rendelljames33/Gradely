@@ -5,11 +5,11 @@ import Misc
 def determine_grade(genAve):
     if genAve >= 90.00 and genAve <= 100.00:
         return 'Outstanding'
-    elif genAve >= 85.00 and genAve <= 89.00:
+    elif genAve >= 85.00 and genAve <= 89.99:
         return 'Very Satisfactory'
-    elif genAve >= 80.00 and genAve <= 84.00:
+    elif genAve >= 80.00 and genAve <= 84.99:
         return 'Satisfactory'
-    elif genAve >= 75.00 and genAve <= 79.00:
+    elif genAve >= 75.00 and genAve <= 79.99:
         return 'Fairly Satisfactory'
     elif genAve < 75.00:
         return 'Failed'
