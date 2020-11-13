@@ -105,6 +105,7 @@ def elemSearchGrade():
                                             data.pop(student)
                                         with open('Elementary.txt', 'w') as elementary:
                                             elementary.writelines(data)
+                                        print("Entry deleted.")
                                         break
                                     elif delete=='n':
                                         break
@@ -173,11 +174,12 @@ def hsSeachGrade():
                                 if delete in 'yn':
                                     delete=str(delete)
                                     if delete == 'y':
-                                        data = elemFile()
+                                        data = hsFile()
                                         for i in range(0, 3):
                                             data.pop(student)
                                         with open('Highschool.txt', 'w') as hs:
                                             hs.writelines(data)
+                                        print("Entry deleted.")
                                         break
                                     elif delete=='n':
                                         break
@@ -246,11 +248,12 @@ def colSearchGrades():
                                 if delete in 'yn':
                                     delete=str(delete)
                                     if delete == 'y':
-                                        data = elemFile()
+                                        data = colFile()
                                         for i in range(0, 3):
                                             data.pop(student)
                                         with open('College.txt', 'w') as college:
                                             college.writelines(data)
+                                        print("Entry deleted.")
                                         break
                                     elif delete=='n':
                                         break
