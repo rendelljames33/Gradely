@@ -1,6 +1,7 @@
 from time import sleep
 import Student
 import Grades
+
 #This is where minor functions are found
 
 #function for loading part

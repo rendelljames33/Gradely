@@ -190,6 +190,7 @@ def highschool():
     quarterTotal=[]
     quarterAverage=[]
 
+
     for subjects in subjectslist:
         print("Enter "+subjects+" grades per quarter")
         subjgrades.append(encodeQuartergrades())

@@ -92,6 +92,7 @@ def elemSearchGrade():
                             Misc.load()
                             Student.reportCard(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
                                                generalAverage)
+
                             print()
                         elif action == 2:
                             while True:
