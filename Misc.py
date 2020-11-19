@@ -4,14 +4,25 @@ import Student
 import Grades
 
 #function for loading part
-def load():
-    loading = '..........'
-    print()
-    print("GENERATING REPORT CARD PLEASE WAIT", end=" ")
-    for i in range(10):
-        print(loading[i], sep=' ', end=' ', flush=True);
-        sleep(0.5)
-    print()
+def load(type='load'):
+    if type=='load':
+        loading = '..........'
+        print()
+        print("GENERATING REPORT CARD PLEASE WAIT", end=" ")
+        for i in range(10):
+            print(loading[i], sep=' ', end=' ', flush=True);
+            sleep(0.5)
+        print()
+    if type=='delete':
+        loading = '..........'
+        print()
+        print("REMOVING FROM STORAGE. PLEASE WAIT", end=" ")
+        for i in range(10):
+            print(loading[i], sep=' ', end=' ', flush=True);
+            sleep(0.5)
+        print()
+
+
 
 #function for error messages
 def error(type='option'):

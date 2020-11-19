@@ -110,6 +110,7 @@ def elemSearchGrade():
                                             data.pop(student)
                                         with open('Elementary.txt', 'w') as elementary:
                                             elementary.writelines(data)
+                                        Misc.load(type='delete')
                                         print("Entry deleted.")
                                         break
                                     elif delete=='n':
@@ -187,6 +188,7 @@ def hsSeachGrade():
                                             data.pop(student)
                                         with open('Highschool.txt', 'w') as hs:
                                             hs.writelines(data)
+                                        Misc.load(type='delete')
                                         print("Entry deleted.")
                                         break
                                     elif delete=='n':
@@ -264,6 +266,7 @@ def colSearchGrades():
                                             data.pop(student)
                                         with open('College.txt', 'w') as college:
                                             college.writelines(data)
+                                        Misc.load(type='delete')
                                         print("Entry deleted.")
                                         break
                                     elif delete=='n':

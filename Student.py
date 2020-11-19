@@ -48,7 +48,7 @@ def encodeQuartergrades():
                 quarterGrades.append(int(grade))
                 i+=1
             else:
-                Misc.error()
+                Misc.error(type='input')
         return quarterGrades
 
 #function for encoding grade(college)
@@ -62,21 +62,8 @@ def encodegradecollege():
                 quarterGrades.append(int(grade))
                 i+=1
             else:
-                Misc.error()
+                Misc.error(type='input')
         return quarterGrades
-
-#function for encoding subjects
-def encodesubject():
-    while True:
-        listsubject = []
-        subjCount =input("Enter the total number of subjects: ").strip()
-        if subjCount in '1234567890':
-            subjCount=int(subjCount)
-            for i in range(int(subjCount)):
-                listsubject.append(input("Enter subject {}: ".format(i + 1)))
-            break
-        else:
-            Misc.error()
 
 #Function to print the report card for elementary and highschool
 def reportCard(studName,studLevel,subjgrades,subjectslist,quarterAverage,generalAverage):
@@ -137,7 +124,7 @@ def elementary():
                 subjectslist.append(input("Enter subject {}: ".format(i + 1)))
             break
         else:
-            Misc.error()
+            Misc.error(type='input')
     subjCount = len(subjectslist)
     subjgrades=[]
     quarterTotal=[]
@@ -174,6 +161,8 @@ def elementary():
             elem.write(str(i)+' ')
         elem.write('\n')
     print()
+    input("Report card generated.\nPlease enter any key to continue.")
+    print()
 
 #student for highschool
 def highschool():
@@ -188,7 +177,7 @@ def highschool():
                 subjectslist.append(input("Enter subject {}: ".format(i + 1)))
             break
         else:
-            Misc.error()
+            Misc.error(type='input')
     subjgrades=[]
     quarterTotal=[]
     quarterAverage=[]
@@ -226,6 +215,8 @@ def highschool():
             hs.write(str(i) + ' ')
         hs.write('\n')
     print()
+    input("Report card generated.\nPlease enter any key to continue.")
+    print()
 
 #student for college
 def college():
@@ -240,7 +231,7 @@ def college():
                 subjectslist.append(input("Enter subject {}: ".format(i + 1)))
             break
         else:
-            Misc.error()
+            Misc.error(type='input')
     subjgrades=[]
     quarterTotal=[]
     quarterAverage=[]
@@ -276,4 +267,6 @@ def college():
         for i in newsubgrades:
             col.write(str(i) + ' ')
         col.write('\n')
+    print()
+    input("Report card generated.\nPlease enter any key to continue.")
     print()
