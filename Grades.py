@@ -99,6 +99,8 @@ def elemSearchGrade():
                             Student.reportCard(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
                                                generalAverage)
                             print()
+                            input("Report card generated.\nPlease enter any key to continue.")
+                            print()
                         elif action == 2:
                             while True:
                                 delete = input("Delete this entry? (y/n): ").lower()
@@ -112,6 +114,8 @@ def elemSearchGrade():
                                             elementary.writelines(data)
                                         Misc.load(type='delete')
                                         print("Entry deleted.")
+                                        input("Please enter any key to continue.")
+                                        print()
                                         break
                                     elif delete=='n':
                                         break
@@ -177,6 +181,8 @@ def hsSeachGrade():
                             Student.reportCard(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
                                                generalAverage)
                             print()
+                            input("Report card generated.\nPlease enter any key to continue.")
+                            print()
                         elif action == 2:
                             while True:
                                 delete = input("Delete this entry? (y/n): ").lower()
@@ -190,6 +196,8 @@ def hsSeachGrade():
                                             hs.writelines(data)
                                         Misc.load(type='delete')
                                         print("Entry deleted.")
+                                        input("Please enter any key to continue.")
+                                        print()
                                         break
                                     elif delete=='n':
                                         break
@@ -255,6 +263,8 @@ def colSearchGrades():
                             Student.reportCardcollege(chosenStudent, studentLevel, quartergrades, subject, quarterAverage,
                                                generalAverage)
                             print()
+                            input("Report card generated.\nPlease enter any key to continue.")
+                            print()
                         elif action == 2:
                             while True:
                                 delete = input("Delete this entry? (y/n): ").lower()
@@ -268,6 +278,8 @@ def colSearchGrades():
                                             college.writelines(data)
                                         Misc.load(type='delete')
                                         print("Entry deleted.")
+                                        input("Please enter any key to continue.")
+                                        print()
                                         break
                                     elif delete=='n':
                                         break
@@ -295,18 +307,24 @@ def viewGrade():
                     elemSearchGrade()
                 else:
                     Misc.error(type='entry')
+                    input("Please enter any key to continue.")
+                    print()
             elif select==2:
                 if highschoolHasgrades():
                     Misc.found()
                     hsSeachGrade()
                 else:
                     Misc.error(type='entry')
+                    input("Please enter any key to continue.")
+                    print()
             elif select==3:
                 if collegeHasgrades():
                     Misc.found()
                     colSearchGrades()
                 else:
                     Misc.error(type='entry')
+                    input("Please enter any key to continue.")
+                    print()
             elif select==4:
                 break
             else:
